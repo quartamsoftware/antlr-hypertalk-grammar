@@ -58,7 +58,7 @@ doStatement
     : DO expression ;
 
 exitStatement
-    : EXIT ( REPEAT | IDENTIFIER | TO TOP ) ;
+    : EXIT ( REPEAT | IDENTIFIER | TO HYPERCARD ) ;
 
 globalStatement
     : GLOBAL identifierList ;
@@ -136,6 +136,7 @@ FOR: 'for' ;
 FOREVER : 'forever' ;
 FUNCTION : 'function' ;
 GLOBAL : 'global' ;
+HYPERCARD : 'hypercard' ;
 IF : 'if' ;
 NEXT : 'next' ;
 ON : 'on' ;
@@ -144,7 +145,6 @@ REPEAT : 'repeat' ;
 THEN : 'then' ;
 TIMES : 'times' ;
 TO : 'to' ;
-TOP : 'top' ;
 UNTIL : 'until' ;
 WITH : 'with' ;
 WHILE : 'while' ;
