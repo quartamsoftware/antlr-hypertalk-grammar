@@ -157,32 +157,32 @@ identifierList
 
 /* LEXER: keyword rules */
 
-AND : 'and' ;
-DIV : 'div' ;
-DO : 'do' ;
-DOWN : 'down' ;
-ELSE : 'else' ;
-END : 'end' ;
-EXIT: 'exit' ;
-FOR: 'for' ;
-FOREVER : 'forever' ;
-FUNCTION : 'function' ;
-GLOBAL : 'global' ;
-HYPERCARD : 'hypercard' ;
-IF : 'if' ;
-IS : 'is' ;
-MOD : 'mod' ;
-NEXT : 'next' ;
-NOT : 'not' ;
-ON : 'on' ;
-OR : 'or' ;
-REPEAT : 'repeat' ;
-THEN : 'then' ;
-TIMES : 'times' ;
-TO : 'to' ;
-UNTIL : 'until' ;
-WITH : 'with' ;
-WHILE : 'while' ;
+AND : [Aa][Nn][Dd] ;
+DIV : [Dd][Ii][Vv] ;
+DO : [Dd][Oo] ;
+DOWN : [Dd][Oo][Ww][Nn] ;
+ELSE : [Ee][Ll][Ss][Ee] ;
+END : [Ee][Nn][Dd] ;
+EXIT: [Ee][Xx][Ii][Tt] ;
+FOR: [Ff][Oo][Rr] ;
+FOREVER : [Ff][Oo][Rr][Ee][Vv][Ee][Rr] ;
+FUNCTION : [Ff][Uu][Nn][Cc][Tt][Ii][Oo][Nn] ;
+GLOBAL : [Gg][Ll][Oo][Bb][Aa][Ll] ;
+HYPERCARD : [Hh][Yy][Pp][Ee][Rr][Cc][Aa][Rr][Dd] ;
+IF : [Ii][Ff] ;
+IS : [Ii][Ss] ;
+MOD : [Mm][Oo][Dd] ;
+NEXT : [Nn][Ee][Xx][Tt] ;
+NOT : [Nn][Oo][Tt] ;
+ON : [Oo][Nn] ;
+OR : [Oo][Rr] ;
+REPEAT : [Rr][Ee][Pp][Ee][Aa][Tt] ;
+THEN : [Tt][Hh][Ee][Nn] ;
+TIMES : [Tt][Ii][Mm][Ee][Ss] ;
+TO : [Tt][Oo] ;
+UNTIL : [Uu][Nn][Tt][Ii][Ll] ;
+WITH : [Ww][Ii][Tt][Hh] ;
+WHILE : [Ww][Hh][Ii][Ll][Ee] ;
 
 /* LEXER: symbol rules */
 

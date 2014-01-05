@@ -4,3 +4,6 @@ on test
   exit \ -- this statement continues on the next line
     to hypercard
 end test
+
+FUNCtion foo
+End foo
