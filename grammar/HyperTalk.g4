@@ -43,6 +43,7 @@ statementList
 statement
     : talkStatement
     | talkBlock
+    | userStatement
     ;
 
 /* PARSER: built-in command rules */
@@ -104,11 +105,17 @@ repeatCount
 repeatWith
     : WITH IDENTIFIER EQ_SYMBOL expression DOWN? TO expression ;
 
+/* PARSER: userStatement rules */
+
+userStatement
+    : IDENTIFIER actualParameterList? ;
+
 /* PARSER: expression rules */
 
 expression
-    : literal
-    | IDENTIFIER
+    : IDENTIFIER LPAREN actualParameterList? RPAREN                           # UserFuncExpression
+    | literal                                                                 # LiteralExpression
+    | IDENTIFIER                                                              # IdentiferExpression
     ;
 
 literal
@@ -118,6 +125,9 @@ literal
 
 
 /* PARSER: miscellanea */ 
+
+actualParameterList
+    : expression ( COMMA_SYMBOL expression )* ;
 
 identifierList
     : IDENTIFIER ( COMMA_SYMBOL IDENTIFIER )* ;
