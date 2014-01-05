@@ -113,9 +113,29 @@ userStatement
 /* PARSER: expression rules */
 
 expression
-    : IDENTIFIER LPAREN actualParameterList? RPAREN                           # UserFuncExpression
-    | literal                                                                 # LiteralExpression
-    | IDENTIFIER                                                              # IdentiferExpression
+    : ( NOT | MINUS_SYMBOL ) expression                                        # UnaryExpression
+    | expression CARET_SYMBOL<assoc=right> expression                          # ExponentiationExpression
+    | expression 
+      ( DIV | MOD | STAR_SYMBOL | SLASH_SYMBOL )
+      expression                                                               # MultiplicationExpression
+    | expression 
+      ( PLUS_SYMBOL | MINUS_SYMBOL )
+      expression                                                               # AdditionExpression
+    | expression 
+      ( AMP_SYMBOL | AMPAMP_SYMBOL )
+      expression                                                               # ConcatenationExpression
+    | expression 
+      ( GE_SYMBOL | GT_SYMBOL | LE_SYMBOL | LT_SYMBOL )
+      expression                                                               # RelationalExpression
+    | expression 
+      ( IS | IS NOT | EQ_SYMBOL | NE_SYMBOL )
+      expression                                                               # EquivalenceExpression
+    | expression AND expression                                                # AndExpression
+    | expression OR expression                                                 # OrExpression
+    | LPAREN expression RPAREN                                                 # NestedExpression
+    | IDENTIFIER LPAREN actualParameterList? RPAREN                            # UserFuncExpression
+    | literal                                                                  # LiteralExpression
+    | IDENTIFIER                                                               # IdentiferExpression
     ;
 
 literal
@@ -137,6 +157,8 @@ identifierList
 
 /* LEXER: keyword rules */
 
+AND : 'and' ;
+DIV : 'div' ;
 DO : 'do' ;
 DOWN : 'down' ;
 ELSE : 'else' ;
@@ -148,7 +170,10 @@ FUNCTION : 'function' ;
 GLOBAL : 'global' ;
 HYPERCARD : 'hypercard' ;
 IF : 'if' ;
+IS : 'is' ;
+MOD : 'mod' ;
 NEXT : 'next' ;
+NOT : 'not' ;
 ON : 'on' ;
 OR : 'or' ;
 REPEAT : 'repeat' ;
@@ -161,10 +186,22 @@ WHILE : 'while' ;
 
 /* LEXER: symbol rules */
 
+AMP_SYMBOL : '&' ;
+AMPAMP_SYMBOL : '&&' ;
+CARET_SYMBOL : '^' ;
 COMMA_SYMBOL : ',' ;
 COMMENT_SYMBOL : '--' ;
 CONTINUATION_SYMBOL : '\\' | '\u00AC' ;
 EQ_SYMBOL : '=' ;
+GE_SYMBOL : '>=' | '\u2265' ;
+GT_SYMBOL : '>' ;
+LE_SYMBOL : '<=' | '\u2264' ;
+LT_SYMBOL : '<' ;
+MINUS_SYMBOL : '-' ;
+NE_SYMBOL : '<>' | '\u2260';
+PLUS_SYMBOL : '+' ;
+STAR_SYMBOL : '*' ;
+SLASH_SYMBOL : '/' ;
 
 /* LEXER: miscellanea */
 
