@@ -157,32 +157,32 @@ identifierList
 
 /* LEXER: keyword rules */
 
-AND : [Aa][Nn][Dd] ;
-DIV : [Dd][Ii][Vv] ;
-DO : [Dd][Oo] ;
-DOWN : [Dd][Oo][Ww][Nn] ;
-ELSE : [Ee][Ll][Ss][Ee] ;
-END : [Ee][Nn][Dd] ;
-EXIT: [Ee][Xx][Ii][Tt] ;
-FOR: [Ff][Oo][Rr] ;
-FOREVER : [Ff][Oo][Rr][Ee][Vv][Ee][Rr] ;
-FUNCTION : [Ff][Uu][Nn][Cc][Tt][Ii][Oo][Nn] ;
-GLOBAL : [Gg][Ll][Oo][Bb][Aa][Ll] ;
-HYPERCARD : [Hh][Yy][Pp][Ee][Rr][Cc][Aa][Rr][Dd] ;
-IF : [Ii][Ff] ;
-IS : [Ii][Ss] ;
-MOD : [Mm][Oo][Dd] ;
-NEXT : [Nn][Ee][Xx][Tt] ;
-NOT : [Nn][Oo][Tt] ;
-ON : [Oo][Nn] ;
-OR : [Oo][Rr] ;
-REPEAT : [Rr][Ee][Pp][Ee][Aa][Tt] ;
-THEN : [Tt][Hh][Ee][Nn] ;
-TIMES : [Tt][Ii][Mm][Ee][Ss] ;
-TO : [Tt][Oo] ;
-UNTIL : [Uu][Nn][Tt][Ii][Ll] ;
-WITH : [Ww][Ii][Tt][Hh] ;
-WHILE : [Ww][Hh][Ii][Ll][Ee] ;
+AND : A N D ;
+DIV : D I V ;
+DO : D O ;
+DOWN : D O W N ;
+ELSE : E L S E ;
+END : E N D ;
+EXIT: E X I T ;
+FOR: F O R ;
+FOREVER : F O R E V E R ;
+FUNCTION : F U N C T I O N ;
+GLOBAL : G L O B A L ;
+HYPERCARD : H Y P E R C A R D ;
+IF : I F ;
+IS : I S ;
+MOD : M O D ;
+NEXT : N E X T ;
+NOT : N O T ;
+ON : O N ;
+OR : O R ;
+REPEAT : R E P E A T ;
+THEN : T H E N ;
+TIMES : T I M E S ;
+TO : T O ;
+UNTIL : U N T I L ;
+WITH : W I T H ;
+WHILE : W H I L E ;
 
 /* LEXER: symbol rules */
 
@@ -217,13 +217,42 @@ NUMBER
     : ( '0' | '1'..'9' DIGIT*) ('.' DIGIT+ )? ;
 STRING
     : '"' CHARSEQUENCE? '"' ;
-
-fragment DIGIT : '0'..'9' ;
-fragment CHARSEQUENCE : ~["\r\n]+ ;
-
 COMMENT
     : COMMENT_SYMBOL ~[\r\n]* -> skip ;
 CONTINUATION
     : CONTINUATION_SYMBOL ~[\r\n]* NEWLINE -> skip ;
 WHITESPACE
     : [ \t]+ -> skip ;
+
+/* LEXER: fragments */
+
+fragment DIGIT : '0'..'9' ;
+fragment CHARSEQUENCE : ~["\r\n]+ ;
+
+/* case insensitive lexer matching */
+fragment A:('a'|'A');
+fragment B:('b'|'B');
+fragment C:('c'|'C');
+fragment D:('d'|'D');
+fragment E:('e'|'E');
+fragment F:('f'|'F');
+fragment G:('g'|'G');
+fragment H:('h'|'H');
+fragment I:('i'|'I');
+fragment J:('j'|'J');
+fragment K:('k'|'K');
+fragment L:('l'|'L');
+fragment M:('m'|'M');
+fragment N:('n'|'N');
+fragment O:('o'|'O');
+fragment P:('p'|'P');
+fragment Q:('q'|'Q');
+fragment R:('r'|'R');
+fragment S:('s'|'S');
+fragment T:('t'|'T');
+fragment U:('u'|'U');
+fragment V:('v'|'V');
+fragment W:('w'|'W');
+fragment X:('x'|'X');
+fragment Y:('y'|'Y');
+fragment Z:('z'|'Z');
